@@ -14,7 +14,7 @@ public class ListaSimples implements IEstruturaSimples {
         for (int i = 0; i < this.tamanho; i++) {
             if (lista[i] == null) {
                 lista[i] = elemento;
-                System.out.println("o elemento " + elemento + " foi inserido");
+                System.out.println("O elemento " + elemento + " foi inserido");
                 return;
             }
         }
@@ -28,7 +28,7 @@ public class ListaSimples implements IEstruturaSimples {
 
         lista[indice] = elemento;
 
-        System.out.println("o elemento " + elemento + " foi inserido no indice " + indice);
+        System.out.println("O elemento " + elemento + " foi inserido no índice " + indice);
 
     }
 
@@ -60,12 +60,31 @@ public class ListaSimples implements IEstruturaSimples {
 
     @Override
     public boolean estaCheia() {
-        return false;
+
+        boolean retorno = true;
+
+        for (int i = 0; i < this.tamanho; i++) {
+            if (lista[i] == null) {
+                retorno = false;
+                break;
+            }
+        }
+
+        return retorno;
     }
 
     @Override
     public boolean estaVazia() {
-        return false;
+        boolean retorno = true;
+
+        for (int i = 0; i < this.tamanho; i++) {
+            if (lista[i] != null) {
+                retorno = false;
+                break;
+            }
+        }
+
+        return retorno;
     }
 
     @Override
@@ -84,7 +103,7 @@ public class ListaSimples implements IEstruturaSimples {
         checarIntervaloIndice(indice);
 
         if (lista[indice] == null) {
-            throw new Exception("elemento no indice " + indice + " é null");
+            throw new Exception("Elemento no indice " + indice + " é null");
         }
 
         return lista[indice];
@@ -151,6 +170,15 @@ public class ListaSimples implements IEstruturaSimples {
             return true;
         }
 
-        throw new Exception("índice fora dos limites ou invalido");
+        throw new Exception("Índice fora dos limites ou invalido");
+    }
+
+    private boolean checarValorNuloIndice(int indice) throws Exception {
+
+        if (lista[indice] == null) {
+            throw new Exception("Elemento no indice " + indice + " é null");
+        }
+
+        return false;
     }
 }

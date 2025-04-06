@@ -2,7 +2,7 @@ public class Main {
 
     public static void main(String[] args) throws Exception {
 
-        ListaSimples listaSimples = new ListaSimples(10);
+        ListaSimples listaSimples = new ListaSimples(3);
 
         listaSimples.inserirElemento(1);
 
@@ -16,7 +16,9 @@ public class Main {
 
         System.out.println(listaSimples.buscarElementoIndice(2));
 
-        listaSimples.removerElemento();
+        System.out.println(listaSimples.estaCheia());
+
+        System.out.println(listaSimples.estaVazia());
 
         listaSimples.exibir();
     }
