@@ -1,6 +1,12 @@
 public class ListaSimples implements IEstruturaSimples{
 
-    Object [] lista;
+    private Object [] lista;
+    private int tamanho;
+
+    public ListaSimples(int tamanho) {
+        this.lista = new Object [tamanho];
+        this.tamanho = tamanho;
+    }
 
     @Override
     public void inserirElemento(Object elemento) {
