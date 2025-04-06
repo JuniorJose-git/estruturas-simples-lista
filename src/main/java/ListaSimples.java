@@ -41,6 +41,7 @@ public class ListaSimples implements IEstruturaSimples{
 
     @Override
     public boolean removerElemento() {
+
         return false;
     }
 
@@ -71,6 +72,12 @@ public class ListaSimples implements IEstruturaSimples{
 
     @Override
     public boolean buscarElemento(Object elemento) {
+
+        for (int i = 0; i < this.tamanho; i++) {
+            if (lista[i] == elemento) {
+                return true;
+            }
+        }
         return false;
     }
 

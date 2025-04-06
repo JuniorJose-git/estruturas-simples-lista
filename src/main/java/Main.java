@@ -12,6 +12,11 @@ public class Main {
 
         listaSimples.inserirElementoIndice("asd",1);
 
+        System.out.println(listaSimples.buscarElemento("asd"));
+        System.out.println(listaSimples.buscarElementoIndice(1));
+
+        listaSimples.removerElemento();
+
         listaSimples.exibir();
     }
 }
