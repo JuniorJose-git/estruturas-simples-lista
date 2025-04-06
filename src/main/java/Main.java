@@ -10,6 +10,8 @@ public class Main {
 
         listaSimples.inserirElemento("sdfsdfsdfsdfsdf");
 
+        listaSimples.inserirElementoIndice("asd",1);
+
         listaSimples.exibir();
     }
 }
