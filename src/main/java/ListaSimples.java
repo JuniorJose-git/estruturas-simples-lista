@@ -11,6 +11,15 @@ public class ListaSimples implements IEstruturaSimples{
     @Override
     public void inserirElemento(Object elemento) {
 
+        for (int i = 0; i < this.tamanho; i++) {
+            if (lista[i] == null) {
+                lista[i] = elemento;
+                System.out.println("o elemento " + elemento + " foi insirido");
+                return;
+            }
+        }
+
+        System.out.println("Todas posições estão preenchidas");
     }
 
     @Override
@@ -95,7 +104,18 @@ public class ListaSimples implements IEstruturaSimples{
 
     @Override
     public void exibir() {
+        System.out.print("[ ");
 
+        for (int i = 0; i < this.tamanho - 1; i++) {
+
+            if (this.lista[i] != null && lista[i].getClass() == String.class) {
+                System.out.print("\"" + lista[i] + "\", ");
+            } else {
+                System.out.print(lista[i] + ", ");
+            }
+        }
+
+        System.out.print(lista[this.tamanho - 1] + " ]");
     }
 
     @Override
