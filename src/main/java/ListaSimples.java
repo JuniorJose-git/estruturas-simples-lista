@@ -1,4 +1,4 @@
-public class ListaSimples implements IEstruturaSimples{
+public class ListaSimples implements IEstruturaSimples {
 
     private Object [] lista;
     private int tamanho;
@@ -23,10 +23,8 @@ public class ListaSimples implements IEstruturaSimples{
     }
 
     @Override
-    public void inserirElementoIndice(Object elemento, int indice) {
-        if (!checarIntervaloIndice(indice)) {
-            return;
-        }
+    public void inserirElementoIndice(Object elemento, int indice) throws Exception {
+        checarIntervaloIndice(indice);
 
         lista[indice] = elemento;
 
@@ -82,8 +80,14 @@ public class ListaSimples implements IEstruturaSimples{
     }
 
     @Override
-    public Object buscarElementoIndice(int indice) {
-        return null;
+    public Object buscarElementoIndice(int indice) throws Exception {
+        checarIntervaloIndice(indice);
+
+        if (lista[indice] == null) {
+            throw new Exception("elemento no indice " + indice + " é null");
+        }
+
+        return lista[indice];
     }
 
     @Override
@@ -142,13 +146,11 @@ public class ListaSimples implements IEstruturaSimples{
         return null;
     }
 
-    public boolean checarIntervaloIndice(int indice) {
-        if (indice > 0 && indice < tamanho) {
+    public boolean checarIntervaloIndice(int indice) throws Exception {
+        if (indice >= 0 && indice < tamanho) {
             return true;
         }
 
-        System.out.println("indice fora dos limites ou invalido");
-
-        return false;
+        throw new Exception("índice fora dos limites ou invalido");
     }
 }

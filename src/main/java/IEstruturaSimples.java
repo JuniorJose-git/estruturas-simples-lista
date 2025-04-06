@@ -1,7 +1,7 @@
 public interface IEstruturaSimples {
 
     void inserirElemento(Object elemento);
-    void inserirElementoIndice(Object elemento, int indice);
+    void inserirElementoIndice(Object elemento, int indice) throws Exception;
     void inserirSequencia(Object elementos);
     boolean removerElemento();
     Object removerIndice(int indice);
@@ -10,7 +10,7 @@ public interface IEstruturaSimples {
     boolean estaCheia();
     boolean estaVazia();
     boolean buscarElemento(Object elemento);
-    Object buscarElementoIndice(int indice);
+    Object buscarElementoIndice(int indice) throws Exception;
     void ordenarCrescente();
     void ordenarDecrescente();
     int quantidadeElementos();
