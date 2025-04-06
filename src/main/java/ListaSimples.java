@@ -136,7 +136,8 @@ public class ListaSimples implements IEstruturaSimples {
 
     @Override
     public void limpar() {
-
+        System.out.println("Lista limpada");
+        this.lista = new Object[this.tamanho];
     }
 
     @Override
