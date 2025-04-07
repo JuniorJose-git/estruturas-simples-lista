@@ -12,9 +12,9 @@ public class Main {
 
         listaSimples.inserirElementoIndice(1,1);
 
+        listaSimples.removerElemento();
 
-        listaSimples.removerTodasOcorrencias(1);
-
+        System.out.println(listaSimples.quantidadeElementos());
 
         listaSimples.exibir();
     }

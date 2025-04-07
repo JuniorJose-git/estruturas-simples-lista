@@ -155,7 +155,15 @@ public class ListaSimples implements IEstruturaSimples {
 
     @Override
     public int quantidadeElementos() {
-        return 0;
+
+        int quantidade = 0;
+        for (int i = 0; i < tamanho; i++) {
+            if (lista[i] != null) {
+                quantidade++;
+            }
+        }
+
+        return quantidade;
     }
 
     @Override
