@@ -1,3 +1,5 @@
+import static java.lang.Integer.parseInt;
+
 public class ListaSimples implements IEstruturaSimples {
 
     private Object [] lista;
@@ -151,6 +153,49 @@ public class ListaSimples implements IEstruturaSimples {
     @Override
     public void ordenarDecrescente() {
 
+        // quebra se for outro tipo de objeto se não Interger
+
+        Integer elementoExterno = null;
+        Integer elementoInterno = null;
+
+        for (int i = 0; i < tamanho; i++) {
+
+            // fazer  tratamentos se objeto for de outros tipos
+
+            if (lista[i] != null) {
+                elementoExterno = parseInt(lista[i].toString());
+            } else {
+                elementoExterno = null;
+            }
+
+            for (int j = i; j < tamanho; j++) {
+
+                if (lista[j] != null) {
+                    elementoInterno = parseInt(lista[j].toString());
+                } else {
+                    elementoInterno = null;
+                }
+
+                System.out.println(elementoExterno + " - " + elementoInterno);
+
+                if (elementoExterno == null && elementoInterno != null) {
+
+                    lista[i] = elementoInterno;
+                    break;
+                }
+
+                // troca os valores dos elmentos, como foi criado duas variveis, representando respectivamente o elemento no loop exerto e interno,
+                // não se teve necessidade de criar uma variável auxiliar
+
+                if (elementoInterno != null && elementoInterno > elementoExterno) {
+                    lista[j] = lista[i];
+                    lista[i] = elementoInterno;
+                }
+
+            }
+            System.out.println("--------------------------");
+
+        }
     }
 
     @Override
@@ -211,7 +256,7 @@ public class ListaSimples implements IEstruturaSimples {
 
         }
 
-        System.out.print(lista[this.tamanho - 1] + " ]");
+        System.out.println(lista[this.tamanho - 1] + " ]");
     }
 
     @Override

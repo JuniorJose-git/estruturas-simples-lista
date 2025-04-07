@@ -28,8 +28,11 @@ public class Main {
 
         lista.inserirElemento(4);
         lista.inserirElemento(5);
-        lista.inserirElemento(7);
         lista.inserirElemento(8);
+        lista.removerIndice(1);
+
+        lista.exibir();
+        lista.ordenarDecrescente();
         lista.exibir();
     }
 }
