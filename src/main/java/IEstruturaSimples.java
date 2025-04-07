@@ -1,6 +1,6 @@
 public interface IEstruturaSimples {
 
-    void inserirElemento(Object elemento);
+    void inserirElemento(Object elemento) throws Exception;
     void inserirElementoIndice(Object elemento, int indice) throws Exception;
     void inserirSequencia(Object elementos);
     boolean removerElemento();

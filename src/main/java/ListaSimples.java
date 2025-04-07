@@ -10,17 +10,17 @@ public class ListaSimples implements IEstruturaSimples {
 
     // irá inserir o elemento desejado no lugar do primeiro elemento nulo que encontrar
     @Override
-    public void inserirElemento(Object elemento) {
+    public void inserirElemento(Object elemento) throws Exception {
 
         for (int i = 0; i < this.tamanho; i++) {
             if (lista[i] == null) {
                 lista[i] = elemento;
-                System.out.println("O elemento " + elemento + " foi inserido");
+                //System.out.println("O elemento " + elemento + " foi inserido");
                 return;
             }
         }
 
-        System.out.println("Todas posições estão preenchidas");
+        throw new Exception("Todas posições estão preenchidas");
     }
 
     @Override
@@ -32,7 +32,7 @@ public class ListaSimples implements IEstruturaSimples {
 
         lista[indice] = elemento;
 
-        System.out.println("O elemento " + elemento + " foi inserido no índice " + indice);
+        //System.out.println("O elemento " + elemento + " foi inserido no índice " + indice);
 
     }
 
@@ -188,7 +188,6 @@ public class ListaSimples implements IEstruturaSimples {
                 lista[i] = elementoNovo;
             }
         }
-
     }
 
     @Override

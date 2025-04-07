@@ -25,6 +25,11 @@ public class Main {
         System.out.println(lista.obterUltimoElemento());
 
         lista.editarElemento("asd",2);
+
+        lista.inserirElemento(4);
+        lista.inserirElemento(5);
+        lista.inserirElemento(7);
+        lista.inserirElemento(8);
         lista.exibir();
     }
 }
