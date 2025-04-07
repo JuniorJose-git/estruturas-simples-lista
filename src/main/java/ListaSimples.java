@@ -8,6 +8,7 @@ public class ListaSimples implements IEstruturaSimples {
         this.tamanho = tamanho;
     }
 
+    // irá inserir o elemento desejado no lugar do primeiro elemento nulo que encontrar
     @Override
     public void inserirElemento(Object elemento) {
 
@@ -37,10 +38,21 @@ public class ListaSimples implements IEstruturaSimples {
 
     }
 
+
+    // Irá remover o primeiro elemento não nulo que encotrar
     @Override
     public boolean removerElemento() {
 
+        for (int i = 0; i < this.tamanho; i++) {
+            if (lista[i] != null) {
+                lista[i] = null;
+                return true;
+            }
+        }
+
+        System.out.println("A lista está vazia");
         return false;
+
     }
 
     @Override
@@ -92,6 +104,7 @@ public class ListaSimples implements IEstruturaSimples {
 
         for (int i = 0; i < this.tamanho; i++) {
             if (lista[i] == elemento) {
+                System.out.println("o elemento existe na lista");
                 return true;
             }
         }
@@ -174,10 +187,10 @@ public class ListaSimples implements IEstruturaSimples {
         throw new Exception("Índice fora dos limites ou invalido");
     }
 
-    private boolean checarValorNuloIndice(int indice) throws Exception {
+    private boolean checarValorNuloIndice(int indice) {
 
         if (lista[indice] == null) {
-            throw new Exception("Elemento no indice " + indice + " é null");
+            return true;
         }
 
         return false;

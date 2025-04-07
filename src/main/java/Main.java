@@ -20,7 +20,7 @@ public class Main {
 
         System.out.println(listaSimples.estaVazia());
 
-        listaSimples.limpar();
+        listaSimples.removerElemento();
 
         listaSimples.exibir();
     }
