@@ -8,21 +8,13 @@ public class Main {
 
         listaSimples.inserirElemento(2);
 
-        listaSimples.inserirElemento("sdfsdfsdfsdfsdf");
+        listaSimples.inserirElemento("asd");
 
-        listaSimples.inserirElementoIndice("asd",1);
+        listaSimples.inserirElementoIndice(1,1);
 
-        System.out.println(listaSimples.buscarElemento("asdasd"));
 
-        System.out.println(listaSimples.buscarElementoIndice(2));
+        listaSimples.removerTodasOcorrencias(1);
 
-        System.out.println(listaSimples.estaCheia());
-
-        System.out.println(listaSimples.estaVazia());
-
-        listaSimples.removerElemento();
-
-        listaSimples.removerIndice(2);
 
         listaSimples.exibir();
     }

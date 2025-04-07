@@ -74,8 +74,19 @@ public class ListaSimples implements IEstruturaSimples {
     }
 
     @Override
-    public void removerTodasOcorrencias(Object elemento) {
+    public void removerTodasOcorrencias(Object elemento) throws Exception {
 
+        if (!buscarElemento(elemento)) {
+            throw new Exception("O elemento não existe na lista");
+        }
+
+        while (buscarElemento(elemento)) {
+            for (int i = 0; i < tamanho; i++) {
+                if (lista[i] == elemento) {
+                    lista[i] = null;
+                }
+            }
+        }
     }
 
     @Override
@@ -159,7 +170,6 @@ public class ListaSimples implements IEstruturaSimples {
 
     @Override
     public void limpar() {
-        System.out.println("Lista limpada");
         this.lista = new Object[this.tamanho];
     }
 
@@ -169,11 +179,14 @@ public class ListaSimples implements IEstruturaSimples {
 
         for (int i = 0; i < this.tamanho - 1; i++) {
 
-            if (this.lista[i] != null && lista[i].getClass() == String.class) {
-                System.out.print("\"" + lista[i] + "\", ");
-            } else {
-                System.out.print(lista[i] + ", ");
-            }
+//            if (this.lista[i] != null && lista[i].getClass() == String.class) {
+//                System.out.print("\"" + lista[i] + "\", ");
+//            } else {
+//                System.out.print(lista[i] + ", ");
+//            }
+
+            System.out.print(lista[i] + ", ");
+
         }
 
         System.out.print(lista[this.tamanho - 1] + " ]");
