@@ -18,6 +18,6 @@ public interface IEstruturaSimples {
     void editarElemento(Object elementoAntigo, Object elementoNovo);
     void limpar();
     void exibir();
-    Object obterPrimeiroElemento();
+    Object obterPrimeiroElemento() throws Exception;
     Object obterUltimoElemento();
 }

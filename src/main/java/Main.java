@@ -2,22 +2,24 @@ public class Main {
 
     public static void main(String[] args) throws Exception {
 
-        ListaSimples listaSimples = new ListaSimples(3);
+        ListaSimples lista = new ListaSimples(3);
 
-        listaSimples.inserirElemento(1);
+        lista.inserirElemento(1);
 
-        listaSimples.inserirElemento(2);
+        lista.inserirElemento(2);
 
-        listaSimples.inserirElemento("asd");
+        lista.inserirElemento("asd");
 
-        listaSimples.inserirElementoIndice(1,1);
+        lista.inserirElementoIndice(1,1);
 
-        listaSimples.removerElemento();
+        lista.removerElemento();
 
-        System.out.println(listaSimples.quantidadeElementos());
+        System.out.println(lista.quantidadeElementos());
 
-        listaSimples.dobrarCapacidade();
+        lista.dobrarCapacidade();
 
-        listaSimples.exibir();
+        System.out.println(lista.obterPrimeiroElemento());
+
+        lista.exibir();
     }
 }

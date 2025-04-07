@@ -207,8 +207,15 @@ public class ListaSimples implements IEstruturaSimples {
     }
 
     @Override
-    public Object obterPrimeiroElemento() {
-        return null;
+    public Object obterPrimeiroElemento() throws Exception {
+
+        for (int i = 0; i < tamanho; i++) {
+            if (lista[i] != null) {
+                return lista[i];
+            }
+        }
+
+        throw new Exception ("Não há elementos na lista");
     }
 
     @Override
