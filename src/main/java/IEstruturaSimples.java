@@ -19,5 +19,5 @@ public interface IEstruturaSimples {
     void limpar();
     void exibir();
     Object obterPrimeiroElemento() throws Exception;
-    Object obterUltimoElemento();
+    Object obterUltimoElemento() throws Exception;
 }

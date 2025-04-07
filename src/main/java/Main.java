@@ -18,8 +18,11 @@ public class Main {
 
         lista.dobrarCapacidade();
 
-        System.out.println(lista.obterPrimeiroElemento());
 
+
+        System.out.println(lista.obterPrimeiroElemento());
+        System.out.println("--------------------");
+        System.out.println(lista.obterUltimoElemento());
         lista.exibir();
     }
 }

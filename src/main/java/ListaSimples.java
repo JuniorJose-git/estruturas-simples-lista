@@ -219,8 +219,15 @@ public class ListaSimples implements IEstruturaSimples {
     }
 
     @Override
-    public Object obterUltimoElemento() {
-        return null;
+    public Object obterUltimoElemento() throws Exception {
+
+        for (int i = tamanho - 1; i >= 0; i--) {
+            if (lista[i] != null) {
+                return lista[i];
+            }
+        }
+
+        throw new Exception ("Não há elementos na lista");
     }
 
     public boolean checarIntervaloIndice(int indice) {
