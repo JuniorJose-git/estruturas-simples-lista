@@ -15,7 +15,7 @@ public interface IEstruturaSimples {
     void ordenarDecrescente();
     int quantidadeElementos();
     void dobrarCapacidade();
-    void editarElemento(Object elementoAntigo, Object elementoNovo);
+    void editarElemento(Object elementoAntigo, Object elementoNovo) throws Exception;
     void limpar();
     void exibir();
     Object obterPrimeiroElemento() throws Exception;

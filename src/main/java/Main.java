@@ -23,6 +23,8 @@ public class Main {
         System.out.println(lista.obterPrimeiroElemento());
         System.out.println("--------------------");
         System.out.println(lista.obterUltimoElemento());
+
+        lista.editarElemento("asd",2);
         lista.exibir();
     }
 }

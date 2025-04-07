@@ -178,7 +178,16 @@ public class ListaSimples implements IEstruturaSimples {
     }
 
     @Override
-    public void editarElemento(Object elementoAntigo, Object elementoNovo) {
+    public void editarElemento(Object elementoAntigo, Object elementoNovo) throws Exception {
+        if (!buscarElemento(elementoAntigo)) {
+            throw new Exception("não foi encontrado o elemento na lista");
+        }
+
+        for (int i = 0; i < tamanho; i++) {
+            if (lista[i] == elementoAntigo) {
+                lista[i] = elementoNovo;
+            }
+        }
 
     }
 
