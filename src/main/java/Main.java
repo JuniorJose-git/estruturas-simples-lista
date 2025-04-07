@@ -22,6 +22,8 @@ public class Main {
 
         listaSimples.removerElemento();
 
+        listaSimples.removerIndice(2);
+
         listaSimples.exibir();
     }
 }

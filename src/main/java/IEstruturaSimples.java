@@ -4,7 +4,7 @@ public interface IEstruturaSimples {
     void inserirElementoIndice(Object elemento, int indice) throws Exception;
     void inserirSequencia(Object elementos);
     boolean removerElemento();
-    Object removerIndice(int indice);
+    Object removerIndice(int indice) throws Exception;
     void removerSequencia(Object elementos);
     void removerTodasOcorrencias(Object elemento);
     boolean estaCheia();

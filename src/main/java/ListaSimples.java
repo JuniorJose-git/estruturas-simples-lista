@@ -25,7 +25,10 @@ public class ListaSimples implements IEstruturaSimples {
 
     @Override
     public void inserirElementoIndice(Object elemento, int indice) throws Exception {
-        checarIntervaloIndice(indice);
+
+        if (!checarIntervaloIndice(indice)) {
+            throw new Exception("Índice fora dos limites ou invalido");
+        }
 
         lista[indice] = elemento;
 
@@ -56,8 +59,13 @@ public class ListaSimples implements IEstruturaSimples {
     }
 
     @Override
-    public Object removerIndice(int indice) {
-        return null;
+    public Object removerIndice(int indice) throws Exception {
+
+        Object elemento = buscarElementoIndice(indice);
+
+        lista[indice] = null;
+
+        return elemento;
     }
 
     @Override
@@ -104,7 +112,6 @@ public class ListaSimples implements IEstruturaSimples {
 
         for (int i = 0; i < this.tamanho; i++) {
             if (lista[i] == elemento) {
-                System.out.println("o elemento existe na lista");
                 return true;
             }
         }
@@ -113,7 +120,10 @@ public class ListaSimples implements IEstruturaSimples {
 
     @Override
     public Object buscarElementoIndice(int indice) throws Exception {
-        checarIntervaloIndice(indice);
+
+        if (!checarIntervaloIndice(indice)) {
+            throw new Exception("Índice fora dos limites ou invalido");
+        }
 
         if (lista[indice] == null) {
             throw new Exception("Elemento no indice " + indice + " é null");
@@ -179,20 +189,17 @@ public class ListaSimples implements IEstruturaSimples {
         return null;
     }
 
-    public boolean checarIntervaloIndice(int indice) throws Exception {
+    public boolean checarIntervaloIndice(int indice) {
+
         if (indice >= 0 && indice < tamanho) {
             return true;
         }
 
-        throw new Exception("Índice fora dos limites ou invalido");
+        return false;
     }
 
     private boolean checarValorNuloIndice(int indice) {
 
-        if (lista[indice] == null) {
-            return true;
-        }
-
-        return false;
+        return lista[indice] == null;
     }
 }
