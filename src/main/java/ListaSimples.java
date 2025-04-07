@@ -168,7 +168,13 @@ public class ListaSimples implements IEstruturaSimples {
 
     @Override
     public void dobrarCapacidade() {
+        Object [] novaLista = new Object[tamanho * 2];
 
+        for (int i = 0; i < tamanho; i++) {
+            novaLista[i] = lista[i];
+        }
+        tamanho = tamanho * 2;
+        this.lista = novaLista;
     }
 
     @Override

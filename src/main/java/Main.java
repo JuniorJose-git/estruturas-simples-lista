@@ -16,6 +16,8 @@ public class Main {
 
         System.out.println(listaSimples.quantidadeElementos());
 
+        listaSimples.dobrarCapacidade();
+
         listaSimples.exibir();
     }
 }
