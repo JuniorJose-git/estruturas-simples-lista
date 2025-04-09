@@ -153,49 +153,90 @@ public class ListaSimples implements IEstruturaSimples {
     @Override
     public void ordenarDecrescente() {
 
-        // quebra se for outro tipo de objeto se não Interger
-
-        Integer elementoExterno = null;
-        Integer elementoInterno = null;
+        Object aux;
 
         for (int i = 0; i < tamanho; i++) {
 
-            // fazer  tratamentos se objeto for de outros tipos
+            for (int j = i + 1; j < tamanho; j++) {
 
-            if (lista[i] != null) {
-                elementoExterno = parseInt(lista[i].toString());
-            } else {
-                elementoExterno = null;
-            }
-
-            for (int j = i; j < tamanho; j++) {
-
-                if (lista[j] != null) {
-                    elementoInterno = parseInt(lista[j].toString());
-                } else {
-                    elementoInterno = null;
-                }
-
-                System.out.println(elementoExterno + " - " + elementoInterno);
-
-                if (elementoExterno == null && elementoInterno != null) {
-
-                    lista[i] = elementoInterno;
+                if (lista[j] == null) {
                     break;
                 }
 
-                // troca os valores dos elmentos, como foi criado duas variveis, representando respectivamente o elemento no loop exerto e interno,
-                // não se teve necessidade de criar uma variável auxiliar
+//                System.out.println("i = " + lista[i] + ", j " + lista[j]);
 
-                if (elementoInterno != null && elementoInterno > elementoExterno) {
-                    lista[j] = lista[i];
-                    lista[i] = elementoInterno;
+                if (!(lista[i] instanceof Integer) && (lista[j] instanceof String)) {
+                    aux = lista[i];
+                    lista[i] = lista[j];
+                    lista[j] = aux;
+                }
+
+                if (lista[j] instanceof Integer) {
+                    aux = lista[i];
+                    lista[i] = lista[j];
+                    lista[j] = aux;
+                }
+
+                if (lista[j] instanceof Integer && lista[i] instanceof Integer && (Integer) lista[j] > (Integer) lista[i]) {
+                    aux = lista[i];
+                    lista[i] = lista[j];
+                    lista[j] = aux;
                 }
 
             }
-            System.out.println("--------------------------");
 
+            if (lista[i] == null) {
+                break;
+            }
+
+//            System.out.println("-----------------");
         }
+
+
+//
+//        // quebra se for outro tipo de objeto se não Interger
+//
+//        Integer elementoExterno = null;
+//        Integer elementoInterno = null;
+//
+//        for (int i = 0; i < tamanho; i++) {
+//
+//            // fazer  tratamentos se objeto for de outros tipos
+//
+//            if (lista[i] != null) {
+//                elementoExterno = parseInt(lista[i].toString());
+//            } else {
+//                elementoExterno = null;
+//            }
+//
+//            for (int j = i; j < tamanho; j++) {
+//
+//                if (lista[j] != null) {
+//                    elementoInterno = parseInt(lista[j].toString());
+//                } else {
+//                    elementoInterno = null;
+//                }
+//
+//                System.out.println(elementoExterno + " - " + elementoInterno);
+//
+//                if (elementoExterno == null && elementoInterno != null) {
+//
+//                    lista[i] = elementoInterno;
+//                    break;
+//                }
+//
+//                // troca os valores dos elmentos, como foi criado duas variveis, representando respectivamente o elemento no loop exerto e interno,
+//                // não se teve necessidade de criar uma variável auxiliar
+//
+//                if (elementoInterno != null && elementoInterno > elementoExterno) {
+//                    lista[j] = lista[i];
+//                    lista[i] = elementoInterno;
+//                }
+//
+//            }
+//            System.out.println("--------------------------");
+
+//        }
     }
 
     @Override
@@ -295,5 +336,50 @@ public class ListaSimples implements IEstruturaSimples {
     private boolean checarValorNuloIndice(int indice) {
 
         return lista[indice] == null;
+    }
+
+    public String[] ordenaString (String [] array) {
+
+
+        for (int i = 0; i < array.length; i++) {
+
+            if (array[i] == null) {
+                break;
+            }
+
+            for (int j = i + 1; j < array.length; j++) {
+
+
+                if (array[j] == null) {
+                    break;
+                }
+
+
+                int tamanho = 0;
+
+                if (array[i].length() < array[j].length()) {
+                    tamanho = array[i].length();
+                } else {
+                    tamanho = array[j].length();
+                }
+
+                int sum1 = 0;
+                int sum2 = 0;
+
+                for (int k = 0; k < tamanho; k++) {
+                    sum1 += (int) array[i].charAt(k);
+                    sum2 += (int) array[j].charAt(k);
+                }
+
+                String aux;
+                if (sum1 > sum2) {
+                    aux = array[i];
+                    array[i] = array[j];
+                    array[j] = aux;
+                }
+            }
+        }
+
+        return array;
     }
 }
