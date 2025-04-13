@@ -38,9 +38,39 @@ public class ListaSimples implements IEstruturaSimples {
 
     }
 
+    // ira inserir um array de elementos na primeira sequencia de elementos nulos do mesmo tamanho do array que encontrar
     @Override
-    public void inserirSequencia(Object elementos) {
+    public void inserirSequencia(Object[] elementos) {
 
+        int i = 0;
+        while ((i + elementos.length) < tamanho + 1) {
+            if (lista[i] != null) {
+                i++;
+                continue;
+            }
+
+//            if (i + elementos.length > tamanho) {
+//                return;
+//            }
+
+            for (int j = i; ( j < i + elementos.length); j++) {
+//                System.out.println(lista[j] + " " + i + " vezes " + elementos.length);
+//                System.out.println(i + elementos.length);
+
+                if (lista[j] != null) {
+                    i = j;
+                    break;
+                } else if (j == (i + elementos.length - 1)) {
+
+                    for (int k = 0; k < elementos.length; k++) {
+                        lista[i + k] = elementos[k];
+                    }
+
+                    return;
+                }
+            }
+            i++;
+        }
     }
 
 
@@ -55,7 +85,6 @@ public class ListaSimples implements IEstruturaSimples {
             }
         }
 
-        System.out.println("A lista está vazia");
         return false;
 
     }
@@ -71,8 +100,7 @@ public class ListaSimples implements IEstruturaSimples {
     }
 
     @Override
-    public void removerSequencia(Object elementos) {
-
+    public void removerSequencia(Object[] elementos) {
     }
 
     @Override
@@ -188,8 +216,6 @@ public class ListaSimples implements IEstruturaSimples {
             if (lista[i] == null) {
                 break;
             }
-
-//            System.out.println("-----------------");
         }
 
 
