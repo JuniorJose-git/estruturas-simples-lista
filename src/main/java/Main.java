@@ -6,7 +6,6 @@ public class Main {
 
         lista.inserirElemento(1);
         lista.inserirElemento(2);
-        lista.inserirElemento("asdasdasd");
         lista.inserirElemento(3);
         lista.inserirElemento(4);
         lista.inserirElemento(4);
@@ -28,14 +27,17 @@ public class Main {
         lista.inserirElemento(10);
         lista.inserirElemento(1);
         lista.inserirElemento(3);
-        lista.inserirElemento(3);
-        lista.inserirElemento(4);
+        lista.inserirElemento(3.6);
+        lista.inserirElementoIndice("sdfgsdfg",6);
+        lista.inserirElementoIndice(null,5);
 //
 //        lista.inserirElemento(10);lista.inserirElemento(10);
 //        lista.inserirElemento(10);
 
 
         lista.removerSequencia(new Object[]{10,1,2,3,4});
+        lista.exibir();
+        lista.ordenarCrescente();
         lista.exibir();
     }
 }

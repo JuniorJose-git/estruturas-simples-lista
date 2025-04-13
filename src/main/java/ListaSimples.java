@@ -1,3 +1,4 @@
+import javax.imageio.metadata.IIOMetadataFormatImpl;
 import java.util.Objects;
 
 import static java.lang.Integer.parseInt;
@@ -203,6 +204,38 @@ public class ListaSimples implements IEstruturaSimples {
 
     @Override
     public void ordenarCrescente() {
+        Object aux;
+
+        for (int i = 0; i < tamanho - 1; i++) {
+
+            for (int j = i + 1; j < tamanho; j++) {
+
+//                System.out.println("indice externo " + i + " = " + lista[i] + " : indice interno " + j + " = " + lista[j]);
+
+                // se o elemento externo for nulo e o interno não, troca o mesmo
+                if ((lista[i] == null) && lista[j] != null) {
+                    aux = lista[i];
+                    lista[i] = lista[j];
+                    lista[j] = aux;
+                    continue;
+                }
+                // troca os elementos se o externo não for inteiro e o interno for.
+                if (!(lista[i] instanceof Integer) && (lista[j] instanceof Integer)) {
+                    aux = lista[i];
+                    lista[i] = lista[j];
+                    lista[j] = aux;
+                    continue;
+                }
+
+                // troca os valores dos elmentos se forem inteiros e se o elemento da varredura interna for maior que o elemento externo
+
+                if (lista[j] instanceof Integer && lista[i] instanceof Integer && (Integer) lista[j] < (Integer) lista[i]) {
+                    aux = lista[i];
+                    lista[i] = lista[j];
+                    lista[j] = aux;
+                }
+            }
+        }
 
     }
 
@@ -211,86 +244,36 @@ public class ListaSimples implements IEstruturaSimples {
 
         Object aux;
 
-        for (int i = 0; i < tamanho; i++) {
+        for (int i = 0; i < tamanho - 1; i++) {
 
             for (int j = i + 1; j < tamanho; j++) {
 
-                if (lista[j] == null) {
-                    break;
-                }
+//                System.out.println("indice externo " + i + " = " + lista[i] + " : indice interno " + j + " = " + lista[j]);
 
-//                System.out.println("i = " + lista[i] + ", j " + lista[j]);
-
-                if (!(lista[i] instanceof Integer) && (lista[j] instanceof String)) {
+                // se o elemento externo for nulo e o interno não, troca o mesmo
+                if ((lista[i] == null) && lista[j] != null) {
                     aux = lista[i];
                     lista[i] = lista[j];
                     lista[j] = aux;
+                    continue;
                 }
-
-                if (lista[j] instanceof Integer) {
+                // troca os elementos se o externo não for inteiro e o interno for.
+                if (!(lista[i] instanceof Integer) && (lista[j] instanceof Integer)) {
                     aux = lista[i];
                     lista[i] = lista[j];
                     lista[j] = aux;
+                    continue;
                 }
+
+                // troca os valores dos elmentos se forem inteiros e se o elemento da varredura interna for maior que o elemento externo
 
                 if (lista[j] instanceof Integer && lista[i] instanceof Integer && (Integer) lista[j] > (Integer) lista[i]) {
                     aux = lista[i];
                     lista[i] = lista[j];
                     lista[j] = aux;
                 }
-
-            }
-
-            if (lista[i] == null) {
-                break;
             }
         }
-
-
-//
-//        // quebra se for outro tipo de objeto se não Interger
-//
-//        Integer elementoExterno = null;
-//        Integer elementoInterno = null;
-//
-//        for (int i = 0; i < tamanho; i++) {
-//
-//            // fazer  tratamentos se objeto for de outros tipos
-//
-//            if (lista[i] != null) {
-//                elementoExterno = parseInt(lista[i].toString());
-//            } else {
-//                elementoExterno = null;
-//            }
-//
-//            for (int j = i; j < tamanho; j++) {
-//
-//                if (lista[j] != null) {
-//                    elementoInterno = parseInt(lista[j].toString());
-//                } else {
-//                    elementoInterno = null;
-//                }
-//
-//                System.out.println(elementoExterno + " - " + elementoInterno);
-//
-//                if (elementoExterno == null && elementoInterno != null) {
-//
-//                    lista[i] = elementoInterno;
-//                    break;
-//                }
-//
-//                // troca os valores dos elmentos, como foi criado duas variveis, representando respectivamente o elemento no loop exerto e interno,
-//                // não se teve necessidade de criar uma variável auxiliar
-//
-//                if (elementoInterno != null && elementoInterno > elementoExterno) {
-//                    lista[j] = lista[i];
-//                    lista[i] = elementoInterno;
-//                }
-//
-//            }
-//            System.out.println("--------------------------");
-
-//        }
     }
 
     @Override
