@@ -4,12 +4,12 @@ public class Main {
 
         ListaSimples lista = new ListaSimples(11);
 
-//        lista.inserirElemento(1);
-//        lista.inserirElemento(2);
-//        lista.inserirElemento("asdasdasd");
-//        lista.inserirElemento(3);
-//        lista.inserirElemento(4);
-//        lista.inserirElemento(4);
+        lista.inserirElemento(1);
+        lista.inserirElemento(2);
+        lista.inserirElemento("asdasdasd");
+        lista.inserirElemento(3);
+        lista.inserirElemento(4);
+        lista.inserirElemento(4);
 //
 //        Double teste = 10.2;
 //
@@ -25,13 +25,17 @@ public class Main {
 //
 //        lista.inserirElemento(10);
 //        lista.inserirElemento(10);
-//        lista.inserirElemento(10);
+        lista.inserirElemento(10);
+        lista.inserirElemento(1);
+        lista.inserirElemento(3);
+        lista.inserirElemento(3);
+        lista.inserirElemento(4);
 //
 //        lista.inserirElemento(10);lista.inserirElemento(10);
 //        lista.inserirElemento(10);
 
 
-        lista.inserirSequencia(new Object[]{200,32,123,123,123});
+        lista.removerSequencia(new Object[]{10,1,2,3,4});
         lista.exibir();
     }
 }

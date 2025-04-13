@@ -1,3 +1,5 @@
+import java.util.Objects;
+
 import static java.lang.Integer.parseInt;
 
 public class ListaSimples implements IEstruturaSimples {
@@ -57,7 +59,7 @@ public class ListaSimples implements IEstruturaSimples {
 //                System.out.println(lista[j] + " " + i + " vezes " + elementos.length);
 //                System.out.println(i + elementos.length);
 
-                if (lista[j] != null) {
+                if (!Objects.equals(lista[j], null)) {
                     i = j;
                     break;
                 } else if (j == (i + elementos.length - 1)) {
@@ -99,8 +101,34 @@ public class ListaSimples implements IEstruturaSimples {
         return elemento;
     }
 
+
+    // ira remover da lista os elementos que forem iguais os do array de parametro e estiverem na mesma sequencia
     @Override
     public void removerSequencia(Object[] elementos) {
+
+        for (int i = 0; i < tamanho; i++) {
+
+            if (lista[i] != elementos[0]) {
+                continue;
+            }
+
+            for (int j = i; j < i + elementos.length; j++) {
+
+                if (!Objects.equals(lista[j], elementos[j - i])) {
+                    break;
+                }
+
+                if (j == (i + elementos.length - 1)) {
+
+                    for (int k = i; k <= j; k++) {
+                        lista[k] = null;
+                    }
+                    return;
+                }
+            }
+
+        }
+
     }
 
     @Override
