@@ -1,23 +1,23 @@
 public interface IEstruturaSimples {
 
-    void inserirElemento(Object elemento) throws Exception;
-    void inserirElementoIndice(Object elemento, int indice) throws Exception;
-    void inserirSequencia(Object [] elementos);
+    void inserirElemento(Integer elemento) throws Exception;
+    void inserirElementoIndice(Integer elemento, int indice) throws Exception;
+    void inserirSequencia(Integer [] elementos) throws Exception;
     boolean removerElemento();
-    Object removerIndice(int indice) throws Exception;
-    void removerSequencia(Object[] elementos);
-    void removerTodasOcorrencias(Object elemento) throws Exception;
+    Integer removerIndice(int indice) throws Exception;
+    void removerSequencia(Integer[] elementos) throws Exception;
+    void removerTodasOcorrencias(Integer elemento) throws Exception;
     boolean estaCheia();
     boolean estaVazia();
-    boolean buscarElemento(Object elemento);
-    Object buscarElementoIndice(int indice) throws Exception;
+    boolean buscarElemento(Integer elemento);
+    Integer buscarElementoIndice(int indice) throws Exception;
     void ordenarCrescente();
     void ordenarDecrescente();
     int quantidadeElementos();
     void dobrarCapacidade();
-    void editarElemento(Object elementoAntigo, Object elementoNovo) throws Exception;
+    void editarElemento(Integer elementoAntigo, Integer elementoNovo) throws Exception;
     void limpar();
     void exibir();
-    Object obterPrimeiroElemento() throws Exception;
-    Object obterUltimoElemento() throws Exception;
+    Integer obterPrimeiroElemento() throws Exception;
+    Integer obterUltimoElemento() throws Exception;
 }

@@ -5,22 +5,21 @@ import static java.lang.Integer.parseInt;
 
 public class ListaSimples implements IEstruturaSimples {
 
-    private Object [] lista;
+    private Integer [] lista;
     private int tamanho;
 
     public ListaSimples(int tamanho) {
-        this.lista = new Object [tamanho];
+        this.lista = new Integer [tamanho];
         this.tamanho = tamanho;
     }
 
     // irá inserir o elemento desejado no lugar do primeiro elemento nulo que encontrar
     @Override
-    public void inserirElemento(Object elemento) throws Exception {
+    public void inserirElemento(Integer elemento) throws Exception {
 
         for (int i = 0; i < this.tamanho; i++) {
             if (lista[i] == null) {
                 lista[i] = elemento;
-                //System.out.println("O elemento " + elemento + " foi inserido");
                 return;
             }
         }
@@ -29,7 +28,7 @@ public class ListaSimples implements IEstruturaSimples {
     }
 
     @Override
-    public void inserirElementoIndice(Object elemento, int indice) throws Exception {
+    public void inserirElementoIndice(Integer elemento, int indice) throws Exception {
 
         if (!checarIntervaloIndice(indice)) {
             throw new Exception("Índice fora dos limites ou invalido");
@@ -43,7 +42,7 @@ public class ListaSimples implements IEstruturaSimples {
 
     // ira inserir um array de elementos na primeira sequencia de elementos nulos do mesmo tamanho do array que encontrar
     @Override
-    public void inserirSequencia(Object[] elementos) {
+    public void inserirSequencia(Integer[] elementos) throws Exception {
 
         int i = 0;
         while ((i + elementos.length) < tamanho + 1) {
@@ -52,13 +51,7 @@ public class ListaSimples implements IEstruturaSimples {
                 continue;
             }
 
-//            if (i + elementos.length > tamanho) {
-//                return;
-//            }
-
             for (int j = i; ( j < i + elementos.length); j++) {
-//                System.out.println(lista[j] + " " + i + " vezes " + elementos.length);
-//                System.out.println(i + elementos.length);
 
                 if (!Objects.equals(lista[j], null)) {
                     i = j;
@@ -74,6 +67,8 @@ public class ListaSimples implements IEstruturaSimples {
             }
             i++;
         }
+
+        throw new Exception("Não há espaço na lista");
     }
 
 
@@ -93,9 +88,9 @@ public class ListaSimples implements IEstruturaSimples {
     }
 
     @Override
-    public Object removerIndice(int indice) throws Exception {
+    public Integer removerIndice(int indice) throws Exception {
 
-        Object elemento = buscarElementoIndice(indice);
+        Integer elemento = buscarElementoIndice(indice);
 
         lista[indice] = null;
 
@@ -105,11 +100,11 @@ public class ListaSimples implements IEstruturaSimples {
 
     // ira remover da lista os elementos que forem iguais os do array de parametro e estiverem na mesma sequencia
     @Override
-    public void removerSequencia(Object[] elementos) {
+    public void removerSequencia(Integer[] elementos) throws Exception {
 
         for (int i = 0; i < tamanho; i++) {
 
-            if (lista[i] != elementos[0]) {
+            if (!Objects.equals(lista[i], elementos[0])) {
                 continue;
             }
 
@@ -130,10 +125,12 @@ public class ListaSimples implements IEstruturaSimples {
 
         }
 
+        throw new Exception("Não foi encontrado a sequência na lista");
+
     }
 
     @Override
-    public void removerTodasOcorrencias(Object elemento) throws Exception {
+    public void removerTodasOcorrencias(Integer elemento) throws Exception {
 
         if (!buscarElemento(elemento)) {
             throw new Exception("O elemento não existe na lista");
@@ -178,7 +175,7 @@ public class ListaSimples implements IEstruturaSimples {
     }
 
     @Override
-    public boolean buscarElemento(Object elemento) {
+    public boolean buscarElemento(Integer elemento) {
 
         for (int i = 0; i < this.tamanho; i++) {
             if (lista[i] == elemento) {
@@ -189,7 +186,7 @@ public class ListaSimples implements IEstruturaSimples {
     }
 
     @Override
-    public Object buscarElementoIndice(int indice) throws Exception {
+    public Integer buscarElementoIndice(int indice) throws Exception {
 
         if (!checarIntervaloIndice(indice)) {
             throw new Exception("Índice fora dos limites ou invalido");
@@ -204,7 +201,7 @@ public class ListaSimples implements IEstruturaSimples {
 
     @Override
     public void ordenarCrescente() {
-        Object aux;
+        Integer aux;
 
         for (int i = 0; i < tamanho - 1; i++) {
 
@@ -219,17 +216,10 @@ public class ListaSimples implements IEstruturaSimples {
                     lista[j] = aux;
                     continue;
                 }
-                // troca os elementos se o externo não for inteiro e o interno for.
-                if (!(lista[i] instanceof Integer) && (lista[j] instanceof Integer)) {
-                    aux = lista[i];
-                    lista[i] = lista[j];
-                    lista[j] = aux;
-                    continue;
-                }
 
-                // troca os valores dos elmentos se forem inteiros e se o elemento da varredura interna for maior que o elemento externo
+                // troca os valores dos elmentos se o elemento da varredura interna for maior que o elemento externo
 
-                if (lista[j] instanceof Integer && lista[i] instanceof Integer && (Integer) lista[j] < (Integer) lista[i]) {
+                if (lista[j] != null && lista[i] != null && lista[j] < lista[i]) {
                     aux = lista[i];
                     lista[i] = lista[j];
                     lista[j] = aux;
@@ -242,7 +232,7 @@ public class ListaSimples implements IEstruturaSimples {
     @Override
     public void ordenarDecrescente() {
 
-        Object aux;
+        Integer aux;
 
         for (int i = 0; i < tamanho - 1; i++) {
 
@@ -257,17 +247,10 @@ public class ListaSimples implements IEstruturaSimples {
                     lista[j] = aux;
                     continue;
                 }
-                // troca os elementos se o externo não for inteiro e o interno for.
-                if (!(lista[i] instanceof Integer) && (lista[j] instanceof Integer)) {
-                    aux = lista[i];
-                    lista[i] = lista[j];
-                    lista[j] = aux;
-                    continue;
-                }
 
-                // troca os valores dos elmentos se forem inteiros e se o elemento da varredura interna for maior que o elemento externo
+                // troca os valores dos elmentos se o elemento da varredura interna for maior que o elemento externo
 
-                if (lista[j] instanceof Integer && lista[i] instanceof Integer && (Integer) lista[j] > (Integer) lista[i]) {
+                if (lista[j] != null && lista[i] != null && lista[j] > lista[i]) {
                     aux = lista[i];
                     lista[i] = lista[j];
                     lista[j] = aux;
@@ -291,7 +274,7 @@ public class ListaSimples implements IEstruturaSimples {
 
     @Override
     public void dobrarCapacidade() {
-        Object [] novaLista = new Object[tamanho * 2];
+        Integer [] novaLista = new Integer[tamanho * 2];
 
         for (int i = 0; i < tamanho; i++) {
             novaLista[i] = lista[i];
@@ -301,13 +284,13 @@ public class ListaSimples implements IEstruturaSimples {
     }
 
     @Override
-    public void editarElemento(Object elementoAntigo, Object elementoNovo) throws Exception {
+    public void editarElemento(Integer elementoAntigo, Integer elementoNovo) throws Exception {
         if (!buscarElemento(elementoAntigo)) {
             throw new Exception("não foi encontrado o elemento na lista");
         }
 
         for (int i = 0; i < tamanho; i++) {
-            if (lista[i] == elementoAntigo) {
+            if (Objects.equals(lista[i], elementoAntigo)) {
                 lista[i] = elementoNovo;
             }
         }
@@ -315,7 +298,7 @@ public class ListaSimples implements IEstruturaSimples {
 
     @Override
     public void limpar() {
-        this.lista = new Object[this.tamanho];
+        this.lista = new Integer[this.tamanho];
     }
 
     @Override
@@ -323,13 +306,6 @@ public class ListaSimples implements IEstruturaSimples {
         System.out.print("[ ");
 
         for (int i = 0; i < this.tamanho - 1; i++) {
-
-//            if (this.lista[i] != null && lista[i].getClass() == String.class) {
-//                System.out.print("\"" + lista[i] + "\", ");
-//            } else {
-//                System.out.print(lista[i] + ", ");
-//            }
-
             System.out.print(lista[i] + ", ");
 
         }
@@ -338,7 +314,7 @@ public class ListaSimples implements IEstruturaSimples {
     }
 
     @Override
-    public Object obterPrimeiroElemento() throws Exception {
+    public Integer obterPrimeiroElemento() throws Exception {
 
         for (int i = 0; i < tamanho; i++) {
             if (lista[i] != null) {
@@ -350,7 +326,7 @@ public class ListaSimples implements IEstruturaSimples {
     }
 
     @Override
-    public Object obterUltimoElemento() throws Exception {
+    public Integer obterUltimoElemento() throws Exception {
 
         for (int i = tamanho - 1; i >= 0; i--) {
             if (lista[i] != null) {
