@@ -329,6 +329,7 @@ public class Main {
                     break;
                 case 14:
                     System.out.println("Existem " + lista.quantidadeElementos() + " elementos na lista");
+                    break;
                 case 15:
                     System.out.println("Dobrado a capacidade da lista");
                     lista.dobrarCapacidade();
